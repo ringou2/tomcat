@@ -122,7 +122,7 @@ RUN set -eux; \
 # fix permissions (especially for running as non-root)
 # https://github.com/docker-library/tomcat/issues/35
 	chmod -R +rX .; \
-	chmod 777 logs work;
+	chmod 777 logs work
 	
 COPY server.xml /usr/local/tomcat/conf/server.xml
 

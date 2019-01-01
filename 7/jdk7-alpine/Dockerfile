@@ -40,7 +40,7 @@ RUN set -eux; \
 		\
 		ca-certificates \
 		openssl \
-	    tzdata busybox-extras; \
+	    tzdata ; \
 	echo "${TIME_ZONE}" > /etc/timezone ;\
 	ln -sf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime; \		
 	export GNUPGHOME="$(mktemp -d)"; \
@@ -115,7 +115,7 @@ RUN set -eux; \
 	\
 # sh removes env vars it doesn't support (ones with periods)
 # https://github.com/docker-library/tomcat/issues/77
-	apk add --no-cache bash; \
+	apk add --no-cache bash busybox-extras; \
 	find ./bin/ -name '*.sh' -exec sed -ri 's|^#!/bin/sh$|#!/usr/bin/env bash|' '{}' +; \
 	\
 # fix permissions (especially for running as non-root)

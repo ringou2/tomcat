@@ -41,9 +41,8 @@ RUN set -eux; \
 		ca-certificates \
 		openssl \
 	    tzdata busybox-extras; \
-        echo "${TIME_ZONE}" > /etc/timezone ;\
-         ln -sf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime; \	
-	; \
+	echo "${TIME_ZONE}" > /etc/timezone ;\
+	ln -sf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime; \		
 	export GNUPGHOME="$(mktemp -d)"; \
 	#for key in $GPG_KEYS; do \
 	#	gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
@@ -122,7 +121,7 @@ RUN set -eux; \
 # fix permissions (especially for running as non-root)
 # https://github.com/docker-library/tomcat/issues/35
 	chmod -R +rX .; \
-	chmod 777 logs work
+	chmod 777 logs work;
 	
 COPY server.xml /usr/local/tomcat/conf/server.xml
 

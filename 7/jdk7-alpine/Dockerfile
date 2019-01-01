@@ -45,9 +45,9 @@ RUN set -eux; \
          ln -sf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime; \	
 	; \
 	export GNUPGHOME="$(mktemp -d)"; \
-	for key in $GPG_KEYS; do \
-		gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
-	done; \
+	#for key in $GPG_KEYS; do \
+	#	gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
+	#done; \
 	\
 	success=; \
 	for url in $TOMCAT_TGZ_URLS; do \

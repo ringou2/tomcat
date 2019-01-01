@@ -69,7 +69,7 @@ RUN set -eux; \
 	done; \
 	[ -n "$success" ]; \
 	\
-	gpg --batch --verify tomcat.tar.gz.asc tomcat.tar.gz; \
+	#gpg --batch --verify tomcat.tar.gz.asc tomcat.tar.gz; \
 	tar -xvf tomcat.tar.gz --strip-components=1; \
 	rm bin/*.bat; \
 	rm tomcat.tar.gz*; \
